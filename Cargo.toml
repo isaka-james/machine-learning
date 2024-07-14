@@ -9,7 +9,7 @@ repository = "https://github.com/isaka-james/machine-learning"
 documentation = "https://isaka-james.github.io/ml-docs/"
 homepage = "https://github.com/isaka-james/machine-learning"
 keywords = ["machine-learning", "rust","algorithms","machine_learning"]
-categories = ["science", "mathematics", "algorithms]
+categories = ["science", "mathematics", "algorithms"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
