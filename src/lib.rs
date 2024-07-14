@@ -27,7 +27,7 @@ pub mod linreg {
 
             let n = x.len() as f64;
 
-            let sum_x: f64 = x.iter().scum();
+            let sum_x: f64 = x.iter().sum();
             let sum_y: f64 = y.iter().sum();
             let sum_xy: f64 = x.iter().zip(y.iter()).map(|(xi, yi)| xi * yi).sum();
             let sum_x_squared: f64 = x.iter().map(|xi| xi * xi).sum();
