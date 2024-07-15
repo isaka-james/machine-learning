@@ -14,7 +14,7 @@ To use this library in your Rust project, add the following line to your `Cargo.
 
 ```toml
 [dependencies]
-machine_learning = "0.1.0"
+machine_learning = "0.1.1"
 ```
 
 ## Documentation
