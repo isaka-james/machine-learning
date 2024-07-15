@@ -1,10 +1,13 @@
 # Machine Learning in Rust
 
-Welcome to the Machine Learning library implemented in Rust! This open-source library provides basic machine learning algorithms and utilities to facilitate the development of machine learning projects in Rust.
+*Welcome to the Machine Learning library implemented in Rust!*
+
+This open-source library provides basic machine learning algorithms and utilities to facilitate the development of machine learning projects in Rust.
 
 ## Features
 
 - **Linear Regression**: Perform linear regression analysis on your data.
+- **Logistic Regression**: Perform the Logistic Regression.
 - **Easy to Use**: Simple API for integrating into your projects.
 - **Efficient**: Leverages Rust's performance and safety features.
 
@@ -23,7 +26,7 @@ For detailed documentation on how to use this library and to stay updated with t
 
 ## Future Updates
 
-Currently, only the linear regression algorithm is published. We are actively working on adding more algorithms and methods. Regularly check the documentation to see what new features have been added.
+Currently, I actively working on adding more algorithms and methods. Regularly check the documentation to see what new features have been added.
 
 ## Contributing
 
