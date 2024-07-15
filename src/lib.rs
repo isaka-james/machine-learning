@@ -79,3 +79,60 @@ pub mod linreg {
         }
     }
 }
+
+pub mod logisticreg {
+    pub struct LogisticRegression {
+        coefficients: Vec<f64>,
+    }
+
+    impl LogisticRegression {
+        pub fn new(num_features: usize) -> Self {
+            let coefficients = vec![0.0; num_features + 1];
+            LogisticRegression { coefficients }
+        }
+
+        fn sigmoid(&self, z: f64) -> f64 {
+            1.0 / (1.0 + (-z).exp())
+        }
+
+        pub fn fit(&mut self, xlarge: &[Vec<f64>], y: &[f64], learning_rate: f64, epochs: usize) {
+            let num_samples = xlarge.len();
+            let num_features = xlarge[0].len();
+
+            for _ in 0..epochs {
+                for i in 0..num_samples {
+                    let mut linear_model = self.coefficients[0];
+                    for j in 0..num_features {
+                        linear_model += self.coefficients[j + 1] * xlarge[i][j];
+                    }
+                    let prediction = self.sigmoid(linear_model);
+                    let error = y[i] - prediction;
+
+                    self.coefficients[0] += learning_rate * error;
+                    for j in 0..num_features {
+                        self.coefficients[j + 1] += learning_rate * error * xlarge[i][j];
+                    }
+                }
+            }
+        }
+
+        pub fn predict_proba(&self, xlarge: &[Vec<f64>]) -> Vec<f64> {
+            let mut probabilities = Vec::new();
+            for x in xlarge.iter() {
+                let mut linear_model = self.coefficients[0];
+                for j in 0..x.len() {
+                    linear_model += self.coefficients[j + 1] * x[j];
+                }
+                probabilities.push(self.sigmoid(linear_model));
+            }
+            probabilities
+        }
+
+        pub fn predict(&self, xlarge: &[Vec<f64>]) -> Vec<u8> {
+            self.predict_proba(xlarge)
+                .iter()
+                .map(|&p| if p >= 0.5 { 1 } else { 0 })
+                .collect()
+        }
+    }
+}
